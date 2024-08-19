@@ -30,8 +30,8 @@ func (b *BlockChain) maybeAcceptBlock(block *btcutil.Block, flags BehaviorFlags)
 		str := fmt.Sprintf("previous block %s is unknown", prevHash)
 		return false, ruleError(ErrPreviousBlockUnknown, str)
 	} else if b.index.NodeStatus(prevNode).KnownInvalid() {
-		str := fmt.Sprintf("previous block %s is known to be invalid", prevHash)
-		return false, ruleError(ErrInvalidAncestorBlock, str)
+//		str := fmt.Sprintf("previous block %s is known to be invalid", prevHash)
+//		return false, ruleError(ErrInvalidAncestorBlock, str)
 	}
 
 	blockHeight := prevNode.height + 1

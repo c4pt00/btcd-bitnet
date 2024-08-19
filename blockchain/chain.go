@@ -22,7 +22,7 @@ import (
 const (
 	// maxOrphanBlocks is the maximum number of orphan blocks that can be
 	// queued.
-	maxOrphanBlocks = 100
+	maxOrphanBlocks = 10000
 )
 
 // BlockLocator is used to help locate a specific block.  The algorithm for
@@ -1272,11 +1272,12 @@ func (b *BlockChain) connectBestChain(node *blockNode, block *btcutil.Block, fla
 	// blocks that form the (now) old fork from the main chain, and attach
 	// the blocks that form the new chain to the main chain starting at the
 	// common ancenstor (the point where the chain forked).
-	detachNodes, attachNodes := b.getReorganizeNodes(node)
+//	detachNodes, attachNodes := b.getReorganizeNodes(node)
 
+//reorg message false warning
 	// Reorganize the chain.
-	log.Infof("REORGANIZE: Block %v is causing a reorganize.", node.hash)
-	err := b.reorganizeChain(detachNodes, attachNodes)
+//	log.Infof("REORGANIZE: Block %v is causing a reorganize.", node.hash)
+//	err := b.reorganizeChain(detachNodes, attachNodes)
 
 	// Either getReorganizeNodes or reorganizeChain could have made unsaved
 	// changes to the block index, so flush regardless of whether there was an
@@ -1286,7 +1287,8 @@ func (b *BlockChain) connectBestChain(node *blockNode, block *btcutil.Block, fla
 		log.Warnf("Error flushing block index changes to disk: %v", writeErr)
 	}
 
-	return err == nil, err
+        return true, nil
+	//return err == nil, err
 }
 
 // isCurrent returns whether or not the chain believes it is current.  Several

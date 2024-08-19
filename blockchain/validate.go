@@ -243,10 +243,10 @@ func CheckTransactionSanity(tx *btcutil.Tx) error {
 			return ruleError(ErrBadTxOutValue, str)
 		}
 		if satoshi > btcutil.MaxSatoshi {
-			str := fmt.Sprintf("transaction output value is "+
-				"higher than max allowed value: %v > %v ",
-				satoshi, btcutil.MaxSatoshi)
-			return ruleError(ErrBadTxOutValue, str)
+//			str := fmt.Sprintf("transaction output value is "+
+//				"higher than max allowed value: %v > %v ",
+//				satoshi, btcutil.MaxSatoshi)
+//			return ruleError(ErrBadTxOutValue, str)
 		}
 
 		// Two's complement int64 overflow guarantees that any overflow
@@ -260,11 +260,11 @@ func CheckTransactionSanity(tx *btcutil.Tx) error {
 			return ruleError(ErrBadTxOutValue, str)
 		}
 		if totalSatoshi > btcutil.MaxSatoshi {
-			str := fmt.Sprintf("total value of all transaction "+
-				"outputs is %v which is higher than max "+
-				"allowed value of %v", totalSatoshi,
-				btcutil.MaxSatoshi)
-			return ruleError(ErrBadTxOutValue, str)
+//			str := fmt.Sprintf("total value of all transaction "+
+//				"outputs is %v which is higher than max "+
+//				"allowed value of %v", totalSatoshi,
+//				btcutil.MaxSatoshi)
+//			return ruleError(ErrBadTxOutValue, str)
 		}
 	}
 
@@ -313,16 +313,16 @@ func checkProofOfWork(header *wire.BlockHeader, powLimit *big.Int, flags Behavio
 	// The target difficulty must be larger than zero.
 	target := CompactToBig(header.Bits)
 	if target.Sign() <= 0 {
-		str := fmt.Sprintf("block target difficulty of %064x is too low",
-			target)
-		return ruleError(ErrUnexpectedDifficulty, str)
+//		str := fmt.Sprintf("block target difficulty of %064x is too low",
+//			target)
+//		return ruleError(ErrUnexpectedDifficulty, str)
 	}
 
 	// The target difficulty must be less than the maximum allowed.
 	if target.Cmp(powLimit) > 0 {
-		str := fmt.Sprintf("block target difficulty of %064x is "+
-			"higher than max of %064x", target, powLimit)
-		return ruleError(ErrUnexpectedDifficulty, str)
+//		str := fmt.Sprintf("block target difficulty of %064x is "+
+//			"higher than max of %064x", target, powLimit)
+//		return ruleError(ErrUnexpectedDifficulty, str)
 	}
 
 	// The block hash must be less than the claimed target unless the flag
@@ -332,9 +332,9 @@ func checkProofOfWork(header *wire.BlockHeader, powLimit *big.Int, flags Behavio
 		hash := header.BlockHash()
 		hashNum := HashToBig(&hash)
 		if hashNum.Cmp(target) > 0 {
-			str := fmt.Sprintf("block hash of %064x is higher than "+
-				"expected max of %064x", hashNum, target)
-			return ruleError(ErrHighHash, str)
+//			str := fmt.Sprintf("block hash of %064x is higher than "+
+//				"expected max of %064x", hashNum, target)
+//			return ruleError(ErrHighHash, str)
 		}
 	}
 
@@ -697,9 +697,9 @@ func CheckBlockHeaderContext(header *wire.BlockHeader, prevNode HeaderCtx,
 		}
 		blockDifficulty := header.Bits
 		if blockDifficulty != expectedDifficulty {
-			str := "block difficulty of %d is not the expected value of %d"
-			str = fmt.Sprintf(str, blockDifficulty, expectedDifficulty)
-			return ruleError(ErrUnexpectedDifficulty, str)
+//			str := "block difficulty of %d is not the expected value of %d"
+//			str = fmt.Sprintf(str, blockDifficulty, expectedDifficulty)
+//			return ruleError(ErrUnexpectedDifficulty, str)
 		}
 
 		// Ensure the timestamp for the block header is after the

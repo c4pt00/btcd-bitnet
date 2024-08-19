@@ -57,7 +57,7 @@ const (
 	// support for sending and receiving the addrv2 message. In the future,
 	// new messages that occur during the version-verack handshake will not
 	// come with a protocol version bump.
-	AddrV2Version uint32 = 70016
+	AddrV2Version uint32 = 70037
 )
 
 const (
