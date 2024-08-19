@@ -280,9 +280,9 @@ type Params struct {
 var MainNetParams = Params{
 	Name:        "mainnet",
 	Net:         wire.MainNet,
-	DefaultPort: "8333",
+	DefaultPort: "7777",
 	DNSSeeds: []DNSSeed{
-		{"bitexplorer.io", true},
+//		{"bitexplorer.io", true},
 	},
 
 	// Chain parameters
@@ -293,10 +293,10 @@ var MainNetParams = Params{
 	BIP0034Height:            0, // 000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8
 	BIP0065Height:            0, // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
 	BIP0066Height:            0, // 00000000000000000379eaa19dce8c9b722d46ae6a57c2f1a988119488b50931
-	CoinbaseMaturity:         100,
+	CoinbaseMaturity:         10,
 	SubsidyReductionInterval: 6000000,
 	TargetTimespan:           time.Hour * 24 * 1, // 14 days
-	TargetTimePerBlock:       time.Minute * 14,    // 10 minutes
+	TargetTimePerBlock:       time.Minute * 4,    // 10 minutes
 	RetargetAdjustmentFactor: 4,                   // 25% less, 400% more
 	ReduceMinDifficulty:      false,
 	MinDiffReductionTime:     0,
@@ -361,7 +361,7 @@ var MainNetParams = Params{
 				time.Unix(1628640000, 0), // August 11th, 2021 UTC.
 			),
 			CustomActivationThreshold: 1815, // 90%
-			MinActivationHeight:       0,
+			MinActivationHeight:       6000000,
 		},
 	},
 
