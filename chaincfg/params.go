@@ -280,9 +280,14 @@ type Params struct {
 var MainNetParams = Params{
 	Name:        "mainnet",
 	Net:         wire.MainNet,
-	DefaultPort: "7777",
+	DefaultPort: "18333",
 	DNSSeeds: []DNSSeed{
-//		{"bitexplorer.io", true},
+		{"bitexplorer.io", true},
+		{"bitnet-io.org", true},
+		{"bitchair.io", true},
+		{"bitnft.io", true},
+
+
 	},
 
 	// Chain parameters
@@ -303,9 +308,11 @@ var MainNetParams = Params{
 	GenerateSupported:        false,
 
 	// Checkpoints ordered from oldest to newest.
-	Checkpoints: []Checkpoint{
-		{203471, newHashFromStr("0f00c9744dbe5b0541913dd5f63e15866ebcce0b723a8d11dba2db7988ff5333")},
-	},
+	Checkpoints: nil,
+
+//	Checkpoints: []Checkpoint{
+//		{203471, newHashFromStr("0f00c9744dbe5b0541913dd5f63e15866ebcce0b723a8d11dba2db7988ff5333")},
+//	},
 
 	// Consensus rule change deployments.
 	//
