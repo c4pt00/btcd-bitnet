@@ -1,4 +1,14 @@
-btcd
+btcd / LND
+
+
+```
+docker build --tag=myrepository/lnd --build-arg checkout=v0.14.1-beta .
+alias lnd="docker run myrepository/lnd"
+lnd --bitcoin.active --bitcoin.mainnet --debuglevel=debug        --btcd.rpcuser=1 --btcd.rpcpass=1 --externalip=66.94.121.198
+
+
+
+
 ====
 
 [![Build Status](https://github.com/btcsuite/btcd/workflows/Build%20and%20Test/badge.svg)](https://github.com/btcsuite/btcd/actions)
