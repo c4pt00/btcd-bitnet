@@ -2,12 +2,14 @@ btcd / LND
 
 
 ```
+git clone https://github.com/bitnet-io/lnd-bitnet
+cd lnd-bitnet
 docker build --tag=myrepository/lnd --build-arg checkout=v0.14.1-beta .
 alias lnd="docker run myrepository/lnd"
 lnd --bitcoin.active --bitcoin.mainnet --debuglevel=debug        --btcd.rpcuser=1 --btcd.rpcpass=1 --externalip=66.94.121.198
+  
 
-
-
+```
 
 ====
 
